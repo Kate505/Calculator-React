@@ -6,14 +6,17 @@ function Buttons({ b, setInput, input, sign, setSign, count, setCount }) {
   const buttonClick = (b, setInput, input, sign, setSign, count, setCount) => {
     console.log('Button: ', b)
     const isSignA = checkSign(input.at(-1)).isSign;
-    const isSignB = checkSign(b).isSign;
-    const signB = checkSign(b).sign;
+    const checkB = checkSign(b);
 
-    if(isSignB && input.length === 0){
-      setInput(oldInput => isSignB && signB === '=' ? oldInput : '');
+    if(checkB.isSign && input.length === 0){
+      setInput(oldInput => checkB.isSign && checkB.sign === '=' ? oldInput : '');
     }else{
       if(!checkActionButtons(b,input, setInput, sign, setSign, count, setCount)){
-        setInput(oldInput => isSignA && isSignB ? oldInput : [...oldInput, b]);
+        if(isSignA && checkB.isSign){
+          setInput(oldInput => oldInput);
+        }else{
+          setInput(oldInput => count === 0 && checkB.isSign && checkB.sign === '=' ? oldInput : [...oldInput, b]);
+        }
       }
     }
   }
