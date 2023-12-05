@@ -1,21 +1,20 @@
 import {checkSign} from "./checkSign.js";
 
-export const checkActionButtons = (b, input, setInput, sign) => {
-  const signA = checkSign(input.at(-1)).sign;
-  let numeros = '';
+export const checkActionButtons = (b, input, setInput, sign, setSign, count, setCount) => {
+  const checkA = checkSign(input.at(-1));
+
   switch (b) {
     case 'CE':
-      if(input.length > 0){
-        numeros = input.join('').split(sign.at(-1))[0];
-      }
-      setInput((numeros + signA).split(''))
+
       return true;
     case 'C':
       setInput('');
+      setSign('');
+      setCount(0);
+      console.log(input, ' H ',  sign)
       return true;
     case '⚡':
-      input.pop();
-      setInput([...input]);
+
       return true;
     default:
         return false;

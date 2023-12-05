@@ -9,20 +9,20 @@ const Output = ({input, count, setCount, sign, setSign, setInput}) => {
     const isSignA = checkSign(input.at(-1)).isSign;
     const signA = checkSign(input.at(-1)).sign;
 
-    if(isSignA) {
+    if (isSignA) {
       setSign(oldSign => [...oldSign, signA]);
-      if(count < 1){
+      if (count < 1) {
         setCount(c => c + 1)
-      }else {
+      } else {
         const numeros = input.join('').split(sign.at(-1));
         const num2 = numeros[1].split(signA)[0];
-        console.log(numeros[0],' ', sign.at(-1), ' ', num2);
+        console.log(numeros[0], ' ', sign.at(-1), ' ', num2);
         const result = operation(parseFloat(numeros[0]), parseFloat(num2), sign.at(-1));
         setCount(0);
-        if(signA === '='){
+        if (signA === '=') {
           setSign('');
           setInput(result.split(''));
-        }else{
+        } else {
           setSign(signA);
           setInput((result + signA).split(''));
         }

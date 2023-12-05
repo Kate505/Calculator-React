@@ -11,7 +11,7 @@ const Calculator = () => {
     <Box h='full' w='full'>
       <Box h='full' w='full' p='10'>
         <Output input={input} count={count} setCount={setCount} sign={sign} setSign={setSign} setInput={setInput}/>
-        <Keypad input={input} setInput={setInput} count={count} sign={sign}/>
+        <Keypad input={input} setInput={setInput} count={count} sign={sign} setSign={setSign} setCount={setCount}/>
       </Box>
     </Box>
   );
