@@ -9,7 +9,7 @@ const Output = ({input, count, setCount, sign, setSign, setInput}) => {
     const isSignA = checkSign(input.at(-1)).isSign;
     const signA = checkSign(input.at(-1)).sign;
 
-    if (isSignA) {
+    if (isSignA && signA !== '.') {
       setSign(oldSign => [...oldSign, signA]);
       if (count < 1) {
         setCount(c => c + 1)
