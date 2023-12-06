@@ -3,7 +3,7 @@ import {Box, Text} from "@chakra-ui/react";
 import {checkSign} from "../Helpers/checkSign.js";
 import {operation} from "../Helpers/operation.js";
 
-const Output = ({input, count, setCount, sign, setSign, setInput}) => {
+const Output = ({input, count, setCount, sign, setSign, setInput, decimal, setDecimal}) => {
 
   const addingSigns = () => {
     const isSignA = checkSign(input.at(-1)).isSign;
@@ -19,6 +19,12 @@ const Output = ({input, count, setCount, sign, setSign, setInput}) => {
         console.log(numeros[0], ' ', sign.at(-1), ' ', num2);
         const result = operation(parseFloat(numeros[0]), parseFloat(num2), sign.at(-1));
         setCount(0);
+        const comp = result.split('.');
+        if(comp.length > 1){
+          setDecimal(d => {return {d1: 1, d2: 0}});
+        }else{
+          setDecimal(d => {return {d1: 0, d2: 0}});
+        }
         if (signA === '=') {
           setSign('');
           setInput(result.split(''));
