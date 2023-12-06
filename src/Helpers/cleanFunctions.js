@@ -1,3 +1,5 @@
+import {checkSign} from "./checkSign.js";
+
 export const clear = (setSign, setCount, input, setInput, sign) => {
   if(input.length > 0){
     const cadena = input.join('').split(sign.at(-1));
@@ -24,9 +26,18 @@ export const clearAll = (setSign, setCount, input, setInput) => {
 }
 
 
-export const deleteOne = (setSign, setCount, input, setInput) => {
-  setSign('');
-  setCount(0);
+export const deleteOne = (setSign, setCount, input, setInput, sign) => {
+  const checkA = checkSign(input.at(-1));
+  if(checkA.isSign){
+    setSign('');
+    setCount(0);
+  }else{
+    if(sign.length > 0){
+      sign.pop();
+      setSign([...sign]);
+      setCount(c => c - 1);
+    }
+  }
   if(input.length > 0) {
     input.pop();
     setInput(input => [...input]);
