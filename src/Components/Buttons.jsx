@@ -4,7 +4,7 @@ import {checkActionButtons} from "../Helpers/checkActionButtons.js";
 
 function Buttons({ b, setInput, input, sign, setSign, count, setCount, decimal, setDecimal }) {
   const buttonClick = (b, setInput, input, sign, setSign, count, setCount) => {
-    //console.log('Button: ', b)
+
     const isSignA = checkSign(input.at(-1)).isSign;
     const checkB = checkSign(b);
 

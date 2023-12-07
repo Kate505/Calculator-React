@@ -16,7 +16,7 @@ const Output = ({input, count, setCount, sign, setSign, setInput, decimal, setDe
       } else {
         const numeros = input.join('').split(sign.at(-1));
         const num2 = numeros[1].split(signA)[0];
-        console.log(numeros[0], ' ', sign.at(-1), ' ', num2);
+        //console.log(numeros[0], ' ', sign.at(-1), ' ', num2);
         const result = operation(parseFloat(numeros[0]), parseFloat(num2), sign.at(-1));
         setCount(0);
         const comp = result.split('.');
