@@ -1,7 +1,6 @@
+export const checkZero = (b, setInput, input, sign, totalDigits) => {
 
-export const checkZero = (b, setInput, input, sign) => {
-
-  if(b === '0' && input.length !== 0) {
+  if(b === '0' && input.length !== 0 && totalDigits ) {
     const op = input.join('').split(sign.at(-1));
     if (op.length < 2) {
       setZeroInput(op[0].split(''), setInput, b);

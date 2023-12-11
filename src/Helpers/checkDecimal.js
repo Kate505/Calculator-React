@@ -1,9 +1,9 @@
 import {checkSign} from "./checkSign.js";
 
-export const checkDecimal = (b, setInput, input, sign, decimal, setDecimal) => {
+export const checkDecimal = (b, setInput, input, sign, decimal, setDecimal, totalDigits) => {
 
   const checkB = checkSign(b);
-  if(checkB.sign === '.' && input.length !== 0){
+  if(checkB.sign === '.' && input.length !== 0 && totalDigits){
     const op = input.join('').split(sign.at(-1));
     if(op.length < 2){
       setDecimal((d) => {return {...d, d1: d.d1 + 1}});

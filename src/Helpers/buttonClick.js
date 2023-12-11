@@ -4,8 +4,7 @@ import {checkDecimal} from "./checkDecimal.js";
 import {checkZero} from "./checkZero.js";
 
 
-export const buttonClick = (b, setInput, input, sign, setSign, count, setCount, decimal, setDecimal) => {
-
+export const buttonClick = (b, setInput, input, sign, setSign, count, setCount, decimal, setDecimal, digits) => {
   const isSignA = checkSign(input.at(-1)).isSign;
   const checkB = checkSign(b);
 
@@ -13,9 +12,9 @@ export const buttonClick = (b, setInput, input, sign, setSign, count, setCount, 
     setInput('');
   }
 
-  checkZero(b, setInput, input, sign);
+  checkZero(b, setInput, input, sign, digits);
 
-  if(input.length === 0 && b !== '0' && !checkB.isSign || input.length !== 0 && b !== '0' && checkB.sign !== '.'){
+  if(input.length === 0 && b !== '0' && !checkB.isSign || input.length !== 0 && digits && b !== '0' && checkB.sign !== '.'){
     if(!checkActionButtons(b,input, setInput, sign, setSign, count, setCount, decimal, setDecimal)){
       if(isSignA && checkB.isSign){
         setInput(oldInput => oldInput);
@@ -26,5 +25,5 @@ export const buttonClick = (b, setInput, input, sign, setSign, count, setCount, 
 
   }
 
-  checkDecimal(b, setInput, input, sign, decimal, setDecimal);
+  checkDecimal(b, setInput, input, sign, decimal, setDecimal, digits);
 }
