@@ -1,4 +1,4 @@
-import {clear, clearAll, deleteOne} from "./cleanFunctions.js";
+import {clear, clearAll, deleteOne} from "./cleaningFunctions.js";
 
 export const checkActionButtons = (b, input, setInput, sign, setSign, count, setCount, decimal, setDecimal) => {
 
