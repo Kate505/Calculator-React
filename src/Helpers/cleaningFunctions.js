@@ -30,16 +30,17 @@ export const clearAll = (setSign, setCount, input, setInput, decimal, setDecimal
 
 export const deleteOne = (setSign, setCount, input, setInput, sign, decimal, setDecimal) => {
   const checkA = checkSign(input.at(-1));
+  const checkB = checkSign(input.at(-2));
 
   if(input.length > 0) {
     const op = input.join('').split(sign.at(-1));
-    input.pop();
-    setInput(input => [...input]);
 
     if(checkA.isSign){
+      input.pop();
+      setInput(input => [...input]);
       if(checkA.sign === '.'){
         if(op.length < 2){
-          setDecimal(d => {return {...d, d1:0}});
+          setDecimal(d => {return {d1:0, d2:0}});
         }else{
           setDecimal(d => {return {...d, d2:0}});
         }
@@ -47,12 +48,13 @@ export const deleteOne = (setSign, setCount, input, setInput, sign, decimal, set
         setSign('');
         setCount(0);
       }
-    }else{
-      if(sign.length > 0){
-        sign.pop();
-        setSign([...sign]);
-        setCount(c => c - 1);
-      }
+    }else {
+      input.pop();
+      setInput(input => [...input]);
+    }
+    if(checkB.isSign && checkB.sign !== '.'){
+      setSign('');
+      setCount(0);
     }
   }
 }
