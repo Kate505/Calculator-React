@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useLayoutEffect} from 'react';
 import {Box, Text} from "@chakra-ui/react";
 import {checkSign} from "../Helpers/checkSign.js";
 import {operation} from "../Helpers/operation.js";
@@ -36,7 +36,7 @@ const Output = ({input, count, setCount, sign, setSign, setInput, decimal, setDe
     }
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     addingSigns();
   }, [input]);
 
