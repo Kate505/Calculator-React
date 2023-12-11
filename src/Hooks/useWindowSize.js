@@ -20,7 +20,7 @@ export const useWindowSize = () => {
       handleSize();
       window.addEventListener('resize', handleSize);
 
-      setTotalDigits((windowSize.width * 0.8) / 16.17);
+      setTotalDigits(((windowSize.width * 0.8) / 16.17)-5);
       return () => window.removeEventListener('resize', handleSize);
     }
     return false;

@@ -9,7 +9,7 @@ const Calculator = () => {
   const [count, setCount] = useState(0);
   const [sign, setSign] = useState('');
   const [decimal, setDecimal] = useState({d1: 0, d2:0})
-  const {totalDigits} = useWindowSize();
+  const {totalDigits, windowSize} = useWindowSize();
   const [digits, setDigits] = useState(input.length < totalDigits);
   const allowInput = (input, totalDigits) => {
     setDigits(input.length < totalDigits);

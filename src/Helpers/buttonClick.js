@@ -26,4 +26,6 @@ export const buttonClick = (b, setInput, input, sign, setSign, count, setCount, 
   }
 
   checkDecimal(b, setInput, input, sign, decimal, setDecimal, digits);
+
+  !digits && checkActionButtons(b,input, setInput, sign, setSign, count, setCount, decimal, setDecimal);
 }
