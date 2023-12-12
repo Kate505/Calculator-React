@@ -1,7 +1,7 @@
 import {checkSign} from "./checkSign.js";
 import {operation} from "./operation.js";
 
-export const calculateResult = (input, count, setCount, sign, setSign, setInput, decimal, setDecimal) => {
+export const calculateResult = (input, count, setCount, sign, setSign, setInput, decimal, setDecimal, history, setHistory) => {
   const checkSignA = checkSign(input.at(-1));
 
   if (checkSignA.isSign && checkSignA.sign !== '.') {
@@ -12,6 +12,10 @@ export const calculateResult = (input, count, setCount, sign, setSign, setInput,
       const numbers = input.join('').split(sign.at(-1));
       const num2 = numbers[1].split(checkSignA.sign)[0];
       const result = operation(parseFloat(numbers[0]), parseFloat(num2), sign.at(-1));
+      const inputCopy = [...input];
+      inputCopy.splice((input.length-1),1);
+      const history =  inputCopy.join(' ') + ' = ' + result.toString();
+      setHistory(h => [...h, history]);
       setCount(0);
       const comp = result.split('.');
       if(comp.length > 1){

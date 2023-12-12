@@ -4,7 +4,7 @@ import Keypad from "./Keypad.jsx";
 import Output from "./Output.jsx";
 import {useWindowSize} from "../Hooks/useWindowSize.js";
 
-const Calculator = () => {
+const Calculator = ({history, setHistory}) => {
   const [input, setInput] = useState('');
   const [count, setCount] = useState(0);
   const [sign, setSign] = useState('');
@@ -22,7 +22,7 @@ const Calculator = () => {
   return (
     <Box h='full' w='full'>
       <Box h='full' w='full' p='10'>
-        <Output input={input} count={count} setCount={setCount} sign={sign} setSign={setSign} setInput={setInput} decimal={decimal} setDecimal={setDecimal}/>
+        <Output input={input} count={count} setCount={setCount} sign={sign} setSign={setSign} setInput={setInput} decimal={decimal} setDecimal={setDecimal} history={history} setHistory={setHistory}/>
         <Keypad input={input} setInput={setInput} count={count} sign={sign} setSign={setSign} setCount={setCount} decimal={decimal} setDecimal={setDecimal} digits={digits}/>
       </Box>
     </Box>

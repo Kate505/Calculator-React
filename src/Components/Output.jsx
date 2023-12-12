@@ -2,10 +2,10 @@ import React, {useLayoutEffect} from 'react';
 import {Box, Text} from "@chakra-ui/react";
 import {calculateResult} from "../Helpers/calculateResult.js";
 
-const Output = ({input, count, setCount, sign, setSign, setInput, decimal, setDecimal}) => {
+const Output = ({input, count, setCount, sign, setSign, setInput, decimal, setDecimal, history, setHistory}) => {
 
   useLayoutEffect(() => {
-    calculateResult(input, count, setCount, sign, setSign, setInput, decimal, setDecimal);
+    calculateResult(input, count, setCount, sign, setSign, setInput, decimal, setDecimal, history, setHistory);
   }, [input]);
 
   return (
