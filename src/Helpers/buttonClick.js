@@ -14,7 +14,7 @@ export const buttonClick = (b, setInput, input, sign, setSign, count, setCount, 
 
   checkZero(b, setInput, input, sign, digits);
 
-  if(input.length === 0 && b !== '0' && !checkB.isSign || input.length !== 0 && digits && b !== '0' && checkB.sign !== '.'){
+  if(input.length === 0 && b !== '0' && !checkB.isSign || input.length !== 0 && digits && b !== '0' && checkB.sign !== '.' || input.length !== 0 && b === '='){
     if(!checkActionButtons(b,input, setInput, sign, setSign, count, setCount, decimal, setDecimal)){
       if(isSignA && checkB.isSign){
         setInput(oldInput => oldInput);

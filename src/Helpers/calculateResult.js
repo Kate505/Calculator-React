@@ -14,7 +14,8 @@ export const calculateResult = (input, count, setCount, sign, setSign, setInput,
       const result = Math.round((parseFloat(operation(parseFloat(numbers[0]), parseFloat(num2), sign.at(-1))) + Number.EPSILON) * 100) / 100;
       const inputCopy = [...input];
       inputCopy.splice((input.length-1),1);
-      const history =  inputCopy.join(' ') + ' = ' + result.toString();
+      const inputSpl = inputCopy.join('').split(sign.at(-1));
+      const history =  inputSpl[0] + ' ' + sign.at(-1) + ' ' + inputSpl[1] + ' = ' + result.toString();
       setHistory(h => [...h, history]);
       setCount(0);
       const comp = result.toString().split('.');
