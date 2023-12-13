@@ -8,7 +8,7 @@ export const HistoryChild = ({historyChild, setHistory, history, setInput}) => {
     setHistory(history.filter(h => h !== historyChild));
   }
   const restoreInput = () => {
-    setInput(text[0].split(' ').join(''));
+    setInput(text[0].split(' ').join('').split(''));
   }
 
   return (
