@@ -3,7 +3,10 @@ import {RepeatClockIcon} from "@chakra-ui/icons";
 import {HistoryChild} from "./HistoryChild.jsx";
 import {useLayoutEffect} from "react";
 
-export const History = ({isOpen, onClose, btnRef, history}) => {
+export const History = ({isOpen, onClose, btnRef, history, setHistory, setInput}) => {
+  useLayoutEffect(() => {
+
+  }, [history]);
   return (
     <Drawer
       isOpen={isOpen}
@@ -17,7 +20,7 @@ export const History = ({isOpen, onClose, btnRef, history}) => {
         <DrawerHeader>History <RepeatClockIcon/></DrawerHeader>
         <DrawerBody>
           {
-            history.length > 0 && history.map((h) => (<HistoryChild key={h} historyChild={h}/>))
+            history.length > 0 && history.map((h) => (<HistoryChild key={h} historyChild={h} history={history} setHistory={setHistory} setInput={setInput}/>))
           }
         </DrawerBody>
       </DrawerContent>

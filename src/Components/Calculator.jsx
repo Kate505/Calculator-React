@@ -4,8 +4,7 @@ import Keypad from "./Keypad.jsx";
 import Output from "./Output.jsx";
 import {useWindowSize} from "../Hooks/useWindowSize.js";
 
-const Calculator = ({history, setHistory}) => {
-  const [input, setInput] = useState('');
+const Calculator = ({history, setHistory, input, setInput}) => {
   const [count, setCount] = useState(0);
   const [sign, setSign] = useState('');
   const [decimal, setDecimal] = useState({d1: 0, d2:0})

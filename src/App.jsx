@@ -5,10 +5,11 @@ import {VStack} from "@chakra-ui/react";
 
 function App() {
   const [history, setHistory] = useState('');
+  const [input, setInput] = useState('');
   return (
     <VStack spacing={1} align='stretch' h='full' w='full'>
-      <Header history={history}/>
-      <Calculator history={history} setHistory={setHistory}/>
+      <Header history={history} setHistory={setHistory} setInput={setInput}/>
+      <Calculator history={history} setHistory={setHistory} input={input} setInput={setInput}/>
     </VStack>
   );
 }
