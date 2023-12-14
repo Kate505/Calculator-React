@@ -11,7 +11,7 @@ import {MoonIcon, RepeatClockIcon, SunIcon} from "@chakra-ui/icons";
 import {History} from "./History.jsx";
 
 
-function Header({history, setHistory, setInput}) {
+function Header({history, setHistory, setInput, setCount, setSign}) {
   const {colorMode, toggleColorMode} = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
@@ -38,7 +38,7 @@ function Header({history, setHistory, setInput}) {
           icon={colorMode === 'light' ? <MoonIcon/> : <SunIcon/>}
         />
       </Flex>
-      <History history={history} isOpen={isOpen} onClose={onClose} btnRef={btnRef} setHistory={setHistory} setInput={setInput}/>
+      <History history={history} isOpen={isOpen} onClose={onClose} btnRef={btnRef} setHistory={setHistory} setInput={setInput}setCount={setCount} setSign={setSign}/>
     </>
   );
 }

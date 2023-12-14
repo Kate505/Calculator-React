@@ -1,14 +1,18 @@
 import {Box, Card, CardBody, CardHeader, Heading, Text, Stack, Spacer, IconButton} from "@chakra-ui/react";
 import {DeleteIcon} from "@chakra-ui/icons";
+import {checkSign} from "../Helpers/checkSign.js";
 
-export const HistoryChild = ({historyChild, setHistory, history, setInput}) => {
+export const HistoryChild = ({historyChild, setHistory, history, setInput, setCount, setSign}) => {
   const text = historyChild.split('=');
 
   const deleteHistory = () => {
     setHistory(history.filter(h => h !== historyChild));
   }
   const restoreInput = () => {
-    setInput(text[0].split(' ').join('').split(''));
+    const newInput = text[0].split(' ').join('').split('');
+    setInput(newInput);
+    setCount(1);
+    setSign(newInput.filter(nI => checkSign(nI).isSign && checkSign(nI).sign !== '.'));
   }
 
   return (
