@@ -17,7 +17,15 @@ export const buttonClick = (b, setInput, input, sign, setSign, count, setCount, 
   if(input.length === 0 && b !== '0' && !checkB.isSign || input.length !== 0 && digits && b !== '0' && checkB.sign !== '.' || input.length !== 0 && b === '='){
     if(!checkActionButtons(b,input, setInput, sign, setSign, count, setCount, decimal, setDecimal)){
       if(checkA.isSign && checkB.isSign){
-        setInput(oldInput => oldInput);
+        if(checkB.sign !== '='){
+          input.pop();
+          setInput(input => [...input, checkB.sign]);
+          sign.pop();
+          setSign(sign => [...sign, checkB.sign]);
+          setCount(c => c - 1);
+        }else{
+          setInput(oldInput => oldInput);
+        }
       }else{
         setInput(oldInput => count === 0 && checkB.isSign && checkB.sign === '=' ? oldInput : [...oldInput, b]);
       }
